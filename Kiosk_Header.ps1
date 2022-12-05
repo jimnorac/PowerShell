@@ -10,9 +10,6 @@ $Array | ForEach-Object {
     if (test-Connection -ComputerName $_.Adapt_PCName -Count 1 -Quiet )                          {$_.Ping_match = "."}   else  {$_.Ping_match = "X"}     
     try {$_.DistinguishedName = get-ADcomputer $_.Adapt_PCName -Property * | Select DistinguishedName,ManagedBy,Description}   catch {$_.DistinguishedName = "X"}                            
 
-
-
-
 #    try {$_.DistinguishedName = get-ADcomputer $_.Adapt_PCName -Property DistinguishedName | Select DistinguishedName}   catch {$_.DistinguishedName = "X"}                            
 #    try {$_.ManagedBY = get-ADcomputer $_.Adapt_PCName -Property ManagedBy | Select ManagedBy}                           catch {$_.ManagedBy = "X"}    
 #    try {$_.Description = get-ADcomputer $_.Adapt_PCName -Property Description | Select Description}                     catch {$_.Description_ = "X" }   
